@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono:wght@400&display=swap');
+
+/* переменные */
+:root {
+  --color-white: #e9d4c3;
+  --color-black: #503130;
+  --color-main: #9eb4d3;
+  --font: 'PT Mono', sans-serif;
+  --font-spacing: -0.08em;
+  --font-size: 20px;
+  --m-font-size: calc(var(--font-size) * 2);
+  --line-height: 20px;
+  --m-line-height: calc(var(--line-height) * 2);
+  --gap: 20px;
+  --radius: 20px;
+  --opacity: 0.2;
+  --page: 80px;
+  --page-m: 120px;
+  --animation-duration: 400ms;
+  --animation-cubic: cubic-bezier(0.8, 0, 0.2, 1);
+  
+  /* Переменные для курсоров - изолируем от JS */
+  --cursor-default: crosshair;
+  --cursor-clickable: pointer;
+}
+
+img[data-src],
+video[data-src] {
+  opacity: 0;
+  transition: var(--animation-duration) var(--animation-cubic);
+
+}
+
+img[data-src].loaded,
+video[data-src].loaded,
+img[data-src].preloaded,
+video[data-src].preloaded {
+  opacity: 1;
+}
+
+
+/* основные стили */
+
+/* Радикально простой подход - только базовые элементы */
+html, body {
+  cursor: crosshair !important;
+}
+
+body {
+  display: block;
+  margin: auto;
+  font-optical-sizing: auto;
+  z-index: 100;
+  background-color: var(--color-white);
+}
+
+/* Все элементы наследуют crosshair, кроме ссылок */
+* {
+  cursor: inherit !important;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Принудительно убираем pointer-events: none со всех элементов которые могут блокировать ссылки */
+body * {
+  pointer-events: auto;
+}
+
+body {
+  min-height: 100vh; /* оставляем, но с auto высотой */
+}
+
+body, html {
+  height: auto !important;
+  min-height: auto !important; /* убираем 100vh */
+}
+
+::selection {
+background: var(--color-black);
+color: var(--color-white);
+}
+
+.block {
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  margin: auto;
+}
+
+h1, h2, h3, p, a {
+  font-family: var(--font);
+  font-weight: 400;
+  letter-spacing: var(--font-spacing);
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+h1 {
+  font-size: calc(var(--font-size) * 4);
+  line-height: calc(var(--line-height) * 4);
+  color: var(--color-black);
+}
+
+h2 {
+  font-size: calc(var(--font-size) * 3);
+  line-height: calc(var(--line-height) * 3);
+  color: var(--color-black);
+}
+
+h3 {
+  font-size: calc(var(--font-size) * 2);
+  line-height: calc(var(--line-height) * 2);
+  color: var(--color-black);
+}
+
+p {
+  font-size: calc(var(--font-size) * 1);
+  line-height: calc(var(--line-height) * 1);
+  color: var(--color-black);
+}
+
+a {
+  font-size: calc(var(--font-size) * 1);
+  line-height: calc(var(--line-height) * 1);
+  color: var(--color-main);
+  cursor: pointer !important;
+}
+
+/* Дополнительная защита для всех состояний ссылок */
+a:link, a:visited, a:hover, a:active, a:focus, a:any-link {
+  cursor: pointer !important;
+}
+
+
+/* Сохраняем цветовые эффекты ссылок при наведении */
+a.blend-invert:hover::after {
+  opacity: 0;
+}
+
+a:hover {
+  transition: var(--animation-duration) var(--animation-cubic);
+}
+
+.links {
+  display: flex;
+  gap: var(--gap);
+  width: 100%;
+  z-index: 999999;
+  pointer-events: auto;
+  justify-content: center;
+  top: var(--gap);
+  position: sticky;
+}
+
+.links a {
+  pointer-events: auto !important;
+  position: relative;
+}
+
+.pages:hover {
+  transition: var(--animation-duration) var(--animation-cubic);
+}
+
+.page {
+  flex: 0 0 calc(33.333% - (var(--gap) * 4 * 2 / 3));
+  max-width: calc(33.333% - (var(--gap) * 4 * 2 / 3));
+  position: relative; 
+  width: 100%;
+  min-width: 0; 
+  height: calc(var(--pack) * 10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--gap);
+  transition: var(--animation-duration) var(--animation-cubic);
+  z-index: 102;
+  overflow: visible; 
+}
+
+.page:hover {
+  transition: var(--animation-duration) var(--animation-cubic);
+}
+
+.page {
+  transition: transform calc(var(--animation-duration) / 2) var(--animation-cubic);
+  transform: skewX(0deg);
+  will-change: transform, opacity;
+}
+
+/* Контент */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--gap) * 8);
+  margin-top: 28vh;
+  margin-bottom: 28vh;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+.content p {
+  text-align: center;
+}
+
+
+/* Блок страниц */
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--gap) / 2);
+  flex-direction: column;
+  z-index: 104;
+}
+
+.header {
+  transform: scaleY(2.4);
+  padding-top: calc(var(--padding) / 4);
+  padding-bottom: calc(var(--padding) / 2);
+}
+
+
+/* Для плавности смены z-index используем animation */
+@keyframes zIndexShift {
+  0% { z-index: 1; }
+  100% { z-index: 2; }
+}
+
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+.page .case-name {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+*:focus {
+  outline: none;
+}
+
+.photo {
+  width: auto;
+  max-height: 80px;
+  min-height: 80px;
+  object-fit: cover;
+  border-radius: calc(var(--radius) * 1);
+}
+
+img, video {
+  width: 100%;
+  border-radius: calc(var(--radius) * 1);
+}
+
+.error {
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-blue);
+}
+
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+
+/* Сглаживание углов */
+
+@supports(corner-shape: squircle) {
+  img:not(.photo), video, .pack {
+    corner-shape: squircle;
+    border-radius: calc(var(--radius) * 1);
+  }
+}
+
+/* ===== Info ===== */
+.info .name {
+  text-align: center;
+}
+
+.info .about {
+  text-align: center;
+  max-width: 640px;
+}
+
+.info .contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+}
+
+/* ===== Portfolio ===== */
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: calc(var(--gap) * 4);
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 calc(var(--gap) * 2);
+}
+
+.card {
+  flex: 0 0 calc(33.333% - var(--gap) * 3);
+  max-width: calc(33.333% - var(--gap) * 3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  text-decoration: none;
+  transition: var(--animation-duration) var(--animation-cubic);
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background-color: var(--color-main);
+  transition: var(--animation-duration) var(--animation-cubic);
+}
+
+.card:hover .card-image {
+  border-radius: calc(var(--radius) * 2);
+}
+
+.card-title {
+  text-align: center;
+}
+
+/* ===== Заметка ===== */
+.note {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap) * 2);
+  padding: 0 calc(var(--gap) * 2);
+}
+
+.note img,
+.note video {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+.note h1, .note h2, .note h3, .note p {
+  text-align: left;
+}
+
+.note .back {
+  align-self: flex-start;
+}
+
+/* ===== Адаптив карточек ===== */
+@media (max-width: 1000px) {
+  .card {
+    flex: 0 0 calc(50% - var(--gap) * 1.5);
+    max-width: calc(50% - var(--gap) * 1.5);
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 1000px) {
+
+  h1, h2, p, a {
+    font-size : var(--m-font-size); 
+    line-height : var(--m-line-height);     
+  }
+
+  .links {
+    gap: calc((var(--gap) * 2));
+  }
+
+  .none {
+    display: none !important;
+  }
+
+  .photo {
+    width: auto;
+    max-height: 120px;
+    min-height: 120px;
+    border-radius: calc(var(--radius) * 20);
+  }
+
+  .portfolio {
+    gap: calc(var(--gap) * 2);
+  }
+  
+
+  .page {
+    flex: 0 0 calc(50% - (var(--gap) * 2 / 2));
+    max-width: calc(50% - (var(--gap) * 2 / 2));
+  }
+
+}

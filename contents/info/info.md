@@ -2,10 +2,10 @@ photo
 ![аватар](avatar.jpeg)
 
 name
-поля шустова
+Поля Шустова
 
 about
-текстовая художница
+Текстовая художница
 
 contacts
 [тгк](https://t.me/pshtto)

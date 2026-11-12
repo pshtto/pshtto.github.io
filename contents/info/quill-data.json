@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "chapterOverrides": {
+    "add": [],
+    "remove": []
+  },
+  "reclassifiedEntities": {},
+  "dismissedEntities": [],
+  "snapshots": [
+    {
+      "takenAt": 1794517568500,
+      "totalWords": 15,
+      "chapterCount": 1,
+      "perChapterWords": [
+        {
+          "filePath": "portfoliogit/info/info.md",
+          "title": "info",
+          "wordCount": 15
+        }
+      ]
+    },
+    {
+      "takenAt": 1794517568503,
+      "totalWords": 15,
+      "chapterCount": 1,
+      "perChapterWords": [
+        {
+          "filePath": "portfoliogit/info/info.md",
+          "title": "info",
+          "wordCount": 15
+        }
+      ]
+    }
+  ]
+}

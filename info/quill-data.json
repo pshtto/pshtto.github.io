@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "chapterOverrides": {
+    "add": [],
+    "remove": []
+  },
+  "reclassifiedEntities": {},
+  "dismissedEntities": [],
+  "snapshots": [
+    {
+      "takenAt": 1794515923383,
+      "totalWords": 13,
+      "chapterCount": 1,
+      "perChapterWords": [
+        {
+          "filePath": "portfoliogit/info/info.md.md",
+          "title": "info.md",
+          "wordCount": 13
+        }
+      ]
+    }
+  ]
+}

@@ -12,5 +12,5 @@ contacts
 [инст](https://www.instagram.com/anilishus/)
 
 portfolio
-азбука из стихов и ткани
-зин про морское
+project-01
+project-02

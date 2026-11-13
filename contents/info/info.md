@@ -1,5 +1,5 @@
 photo
-![аватар](avatar.jpeg)
+![аватар](avatar.jpg)
 
 name
 Поля Шустова

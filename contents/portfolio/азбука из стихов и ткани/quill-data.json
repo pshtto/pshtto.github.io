@@ -54,6 +54,18 @@
           "wordCount": 136
         }
       ]
+    },
+    {
+      "takenAt": 1794599905814,
+      "totalWords": 130,
+      "chapterCount": 1,
+      "perChapterWords": [
+        {
+          "filePath": "portfoliogit/portfolio/азбука из стихов и ткани/project.md",
+          "title": "project",
+          "wordCount": 130
+        }
+      ]
     }
   ]
 }

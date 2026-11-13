@@ -162,6 +162,18 @@
           "wordCount": 261
         }
       ]
+    },
+    {
+      "takenAt": 1794608088841,
+      "totalWords": 261,
+      "chapterCount": 1,
+      "perChapterWords": [
+        {
+          "filePath": "portfoliogit/portfolio/project-01/project.md",
+          "title": "project",
+          "wordCount": 261
+        }
+      ]
     }
   ]
 }

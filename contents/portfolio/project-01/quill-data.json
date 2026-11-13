@@ -18,6 +18,30 @@
           "wordCount": 539
         }
       ]
+    },
+    {
+      "takenAt": 1794598105799,
+      "totalWords": 90,
+      "chapterCount": 1,
+      "perChapterWords": [
+        {
+          "filePath": "portfoliogit/portfolio/project-01/project.md",
+          "title": "project",
+          "wordCount": 90
+        }
+      ]
+    },
+    {
+      "takenAt": 1794598705809,
+      "totalWords": 118,
+      "chapterCount": 1,
+      "perChapterWords": [
+        {
+          "filePath": "portfoliogit/portfolio/project-01/Текстильная поэтическая книга.md",
+          "title": "Текстильная поэтическая книга",
+          "wordCount": 118
+        }
+      ]
     }
   ]
 }

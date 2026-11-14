@@ -24,3 +24,5 @@
 
 ![](zin1page6.jpg)
 ![](zin1page6.jpg)
+
+![](zin1page7.jpg)

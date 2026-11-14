@@ -30,6 +30,18 @@
           "wordCount": 15
         }
       ]
+    },
+    {
+      "takenAt": 1794699125023,
+      "totalWords": 13,
+      "chapterCount": 1,
+      "perChapterWords": [
+        {
+          "filePath": "portfoliogit/info/info.md",
+          "title": "info",
+          "wordCount": 13
+        }
+      ]
     }
   ]
 }

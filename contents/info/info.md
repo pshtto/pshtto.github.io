@@ -13,4 +13,4 @@ contacts
 
 portfolio
 project-01
-зин о море
+project-02

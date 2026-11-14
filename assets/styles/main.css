@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-  --color-white: #faefe4;
-  --color-black: #292625;
-  --color-main: #3467ae;
+  --color-white: #FDF9EE;
+  --color-black: #292524;
+  --color-main: #E1B9B9;
+  --color-secondary: #686787;
+  --color-third: #D0DDE4;
   --paragraph: 'Anonymous Pro', sans-serif;
   --header: 'Anonymous Pro', sans-serif;
   --font-spacing: -0.02em;
@@ -46,7 +48,7 @@ body {
   margin: 0; padding: 0;
   width: 100vw; height: 100vh;
   overflow: hidden;
-  background-color: var(--color-black);
+  background-color: var(--color-third);
   overscroll-behavior: none;
 }
 body::-webkit-scrollbar { display: none; }
@@ -135,7 +137,10 @@ img, video { width: 100%; border-radius: var(--radius); }
   position: fixed;
   left: 0; right: 0;
   width: 100%;
-  padding: calc(var(--gap) / 2);
+  padding-top: calc(var(--gap) / 2);
+  padding-left: calc(var(--gap) / 1);
+  padding-right: calc(var(--gap) / 1);
+  padding-bottom: calc(var(--gap) / 2);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -146,8 +151,8 @@ img, video { width: 100%; border-radius: var(--radius); }
 .header { top: 0; }
 .footer { bottom: 0; align-items: flex-end; }
 .header *, .footer * { pointer-events: auto; }
-.header p.description, .footer p.description { color: var(--color-white); }
-.header .description a, .footer .description a { color: var(--color-white) !important; }
+.header p.description, .footer p.description { color: var(--color-black); }
+.header .description a, .footer .description a { color: var(--color-black) !important; }
 
 /* ===== book ===== */
 .book-host { position: absolute; inset: 0; }
@@ -169,6 +174,21 @@ img, video { width: 100%; border-radius: var(--radius); }
 }
 .book::-webkit-scrollbar { display: none; }
 
+/* первая страница книги — только текст в --color-secondary */
+.book .slot:first-child .page:first-child,
+.book .slot:first-child .page:first-child p,
+.book .slot:first-child .page:first-child a,
+.book .slot:first-child .page:first-child li,
+.book .slot:first-child .page:first-child span,
+.book .slot:first-child .page:first-child h1,
+.book .slot:first-child .page:first-child h2,
+.book .slot:first-child .page:first-child h3,
+.book .slot:first-child .page:first-child h4,
+.book .slot:first-child .page:first-child h5,
+.book .slot:first-child .page:first-child h6 {
+  color: var(--color-secondary);
+}
+
 .slot {
   flex: 0 0 auto;
   width: calc(1000px * var(--book-k));
@@ -189,7 +209,7 @@ img, video { width: 100%; border-radius: var(--radius); }
   transform: scale(var(--book-k));
   transform-origin: top left;
   overflow: hidden;
-  border-radius: calc(var(--radius) / 2 * var(--book-radius-scale));
+  border-radius: calc(var(--radius) * 4 * var(--book-radius-scale));
 }
 
 .page {
@@ -200,11 +220,11 @@ img, video { width: 100%; border-radius: var(--radius); }
   padding-left: calc(var(--gap) * 1);
   padding-right: calc(var(--gap) * 1);
   padding-top: calc(var(--gap) / 1);
-  padding-bottom: calc(var(--gap) / 1);
+  padding-bottom: calc(var(--gap) / 2);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  border-radius: calc(var(--radius) / 4 * var(--book-radius-scale));
+  border-radius: calc(var(--radius) / 1 * var(--book-radius-scale));
   background-color: var(--color-white);
   font-size: var(--font-size);
   line-height: calc(var(--line-height) * var(--line-factor));
@@ -261,7 +281,6 @@ img, video { width: 100%; border-radius: var(--radius); }
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: calc(var(--gap) / 3);
 }
 .hero .photo-wrap { margin-bottom: var(--gap); }
 .hero .photo { width: 70px; height: 70px; max-height: 70px; object-fit: cover; border-radius: var(--radius); }
@@ -274,8 +293,9 @@ img, video { width: 100%; border-radius: var(--radius); }
   color: inherit;
 }
 .hero .about { text-align: left; max-width: none; opacity: 1; color: inherit; }
-.hero .contacts { display: flex; flex-wrap: wrap; gap: calc(var(--gap) / 3); }
+.hero .contacts { display: flex; flex-wrap: wrap; gap: calc(var(--gap) / 8); }
 .hero .contacts a { color: inherit; }
+.hero .contacts p { display: flex; flex-wrap: wrap; gap: calc(var(--gap) / 3); }
 
 .toc-title { color: inherit; margin-bottom: calc(var(--gap) / 3); font-size: calc(var(--font-size) * 1.4); line-height: calc(var(--line-height) * 1.4); }
 
@@ -340,7 +360,6 @@ img, video { width: 100%; border-radius: var(--radius); }
 /* ===== full-страницы ===== */
 .page.full {
   padding: 0;
-  border-radius: calc(var(--radius) / 4);
   overflow: hidden;
   position: relative;
 }
@@ -353,6 +372,27 @@ img, video { width: 100%; border-radius: var(--radius); }
   min-height: 0;
   display: block;
   overflow: hidden;
+}
+
+/* ===== spread с обложкой на весь разворот ===== */
+/* ===== spread: одна картинка на две страницы с разрезом ===== */
+.spread.has-cover {
+  background-color: var(--color-black);
+  position: relative;
+}
+
+.spread.has-cover .spread-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1000px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 0;
+  user-select: none;
 }
 
 /* футер на full-страницах: отступы как у обычной страницы */
@@ -455,6 +495,37 @@ img, video { width: 100%; border-radius: var(--radius); }
   object-position: center;
   border-radius: 0;
   margin: 0;
+}
+
+/* ===== пара одинаковых изображений: одна картинка на весь разворот, разрезанная пополам ===== */
+.page.image-cover.image-cover-left .content,
+.page.image-cover.image-cover-right .content {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.page.image-cover.image-cover-left .content > img,
+.page.image-cover.image-cover-right .content > img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 200% !important;
+  max-width: none !important;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0 !important;
+  margin: 0;
+}
+
+/* левая страница показывает левую половину картинки */
+.page.image-cover.image-cover-left .content > img {
+  left: 0;
+}
+
+/* правая страница показывает правую половину: сдвигаем картинку влево на ширину страницы */
+.page.image-cover.image-cover-right .content > img {
+  left: -100%;
 }
 
 /* h1 на обложке — как обычный h1 вверху страницы, белый, без тени */
@@ -692,7 +763,7 @@ img.photo { cursor: pointer !important; }
 .gallery .zone.current { left: 15%; right: 15%; cursor: zoom-out !important; }
 
 @supports (corner-shape: squircle) {
-  img:not(.photo), video { corner-shape: squircle; border-radius: var(--radius); }
+  .page, .spread, img, video { corner-shape: squircle; }
 }
 
 /* ===== мобилка ===== */

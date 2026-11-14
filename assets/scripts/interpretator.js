@@ -91,8 +91,10 @@ function setupLazyFor(root) {
 }
 
 // ============ MARKDOWN → АТОМЫ ============
-function mdToAtoms(md) {
+function mdToAtoms(md, opts) {
   if (!md) return [];
+  opts = opts || {};
+  const hardBreak = opts.hardBreak !== false;
 
   // --- 0. нормализуем переносы ---
   md = md.replace(/\r\n?/g, '\n');
@@ -139,7 +141,9 @@ function mdToAtoms(md) {
 
   const flushText = () => {
     if (!buf.length) return;
-    const text = buf.map(x => x.text + (x.br ? '<br>' : '')).join(' ').trim();
+    const text = hardBreak
+      ? buf.map(x => x.text).join('<br>').trim()
+      : buf.map(x => x.text).join(' ').trim();
     if (text) pushAtom({ type: 'paragraph', html: `<p>${text}</p>` });
     buf = [];
   };

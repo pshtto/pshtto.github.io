@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "chapterOverrides": {
+    "add": [],
+    "remove": []
+  },
+  "reclassifiedEntities": {},
+  "dismissedEntities": [],
+  "snapshots": [
+    {
+      "takenAt": 1794701525018,
+      "totalWords": 306,
+      "chapterCount": 1,
+      "perChapterWords": [
+        {
+          "filePath": "portfoliogit/portfolio/project-04/project.md",
+          "title": "project",
+          "wordCount": 306
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-![](../../attachments/stihi%20short.jpg)
+![](stihi%20short.jpg)
 # короткие стихи 2026
 
 ```

@@ -14,7 +14,7 @@ about
 Пишите
 
 contacts
-[тгк](https://t.me/pshtto)
+[тгк](https://t.me/pshpshto)
 
 portfolio
 project-06

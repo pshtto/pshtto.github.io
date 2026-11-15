@@ -17,6 +17,7 @@ contacts
 [тгк](https://t.me/pshtto)
 
 portfolio
+project-06
+project-05
 project-01
 project-02
-project-05
